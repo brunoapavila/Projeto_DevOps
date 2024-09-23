@@ -1,0 +1,31 @@
+docker --version      # verifica se esta instalado e a versão
+docker images         # mostra as imagens 
+docker ps             # mostra as imagens que estão rodando no momento
+
+
+
+
+docker run -dti --name serv-web -p 80:80 http:latest
+# para que o docker starte o conteiner e continue em segundo plano com o -dti,
+# depois é dado um nome
+# depois no -p determina-se a porta
+# deppois a imagem que quer executar
+
+
+
+
+docker build -t usuario_do_DockerHub/minha_imagem:
+# build para construir a imagem
+# -t            
+# usuario_do_DockerHub
+# minha_imagem
+# :1.0 para idenfificar a versão dessa imagem
+# . o ponto no final é pra indicar que o dockerfile esta aqui
+
+
+
+
+
+
+
+
