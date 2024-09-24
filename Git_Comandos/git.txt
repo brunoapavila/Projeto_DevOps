@@ -22,11 +22,3 @@ https://github.com/brunoapavila/Projeto_DevOps.git
 Comece criando um novo arquivo ou carregando um arquivo existente
 Recomendamos que cada repositório inclua um README , LICENSE e .gitignore .
 
-
-
-
-
-
-
-
-

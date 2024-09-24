@@ -1,0 +1,16 @@
+Baixar o Arquivo PuTTY.exe
+Executar o arquivo PuTTY.exe
+Colar o IP da VM
+Ticar SSH
+Abrir SSH
+Escolher Auth
+Clicar em Browser
+Colar o Caminho da Chave (Key Name Criada anteriomente)
+Clicar em Open
+Digitar o usuario (login as:)
+
+
+Pronto apartir de agora vc esta conectado em sua VM criada em um provedor com tudo que foi instalado atravez do Script.sh
+Agora é só executar comandos do sistema operacional
+
+

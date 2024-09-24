@@ -24,7 +24,7 @@ resource "aws_instance" "dar um nome a essa instancia" {
 
 
 
-#Comandos terraform para subir uma instancia EC2 de forma automatica na aWS atravez do terminal:
+#Comandos terraform para subir uma instancia EC2 de forma automatica na AWS atravez do terminal:
 #   terraform.exe plan
 #   terraform.exe apply
 #   yes

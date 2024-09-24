@@ -1,0 +1,13 @@
+Criando um Projeto CI/CD no GitLab
+
+New Project
+Creat Blanck Project
+Project Name
+Escolher tipo de Deployment target (Ex: VM, EC2)
+Publico ou Privado
+Creat Project
+
+
+
+
+
