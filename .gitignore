@@ -1,0 +1,14 @@
+# Aqui fica tudo que eu não quero que suba para meu repositorio do Git
+# aqui eu posso colocar, diretorios, Pastas, e Filtros
+
+
+.terraform*
+terraform*
+
+
+
+
+#o * aqui é pra indicar que não ira subir o conteudo dentro dele
+
+
+

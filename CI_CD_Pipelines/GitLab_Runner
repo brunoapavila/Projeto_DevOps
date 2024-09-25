@@ -1,0 +1,57 @@
+#Instalar o GitLab Runner na VM que criar e acessando atravez do PuTTY reqalizar esses comandos
+#O Runner é individualiado por projeto ou seja a cada projeto vc precisara de um runner pra ele
+#e após a instalação é preciso Registrar o Runner no Projeto
+#tambem é preciso Configurar o usuario gitlab-runner no Grupo do Docker para que o runner possa realizar execuções em containeres
+
+
+
+#Se for SO linux/Ubuntu/Debian
+curl -L "https://packages.gitlab.com/install/repositories/runner/gitlab-runner/script.deb.sh" | sudo bash
+
+sudo apt-get install gitlab-runner
+
+
+
+
+#Para Registrar o Runner no Projeto
+1. GitLab do Projeto em especifico
+2. Settings
+3. Runners
+4. Expandir
+5. New Project Runner
+6. Clicar nos 3 pontinhos ao lado do New Project Runner 
+7. Copiar o token do Registration token
+8. Ir para a VM que instalou o GitLab Runner
+9. sudo gitlab-runner register
+10. passar a URL da instancia https://gitlab.com/
+11. Colar o token copiado do Registration token
+12. Dar um nome a esse Runner
+13. escolher TAGs que vc vai usar para executar esse Runner (ex: prod, aws, etc...)
+14. escolher mais alguma nota (opcional)
+15. Escolher o tipo de arquivo que ira usar para executar esse Runner (ex: shell, etc....)
+16. sudo gitlab-runner start     #para verificar se esta ok
+17. verificar la no projeto na aba do Runners se apareceu o Runner resgistrado
+
+
+
+
+#Para Configurar o usuario gitlab-runner no grupo docker
+1. Conecta na VM
+2. sudo cat /etc/passwd    #para checar os usuarios
+3. sudo cat /etc/group     #para encontrar o grupo docker
+4. sudo usermod -G docker gitlab-runner    #-G é para adicionar ao grupo 1° escolher o grupo que quer adicionar e depois o grupo que vai ser adicionado
+5. Observação é necessario estar logado la no DockerHub para utilizar o GitLab_runner
+6. sudo passwd root   #para cadastrar uma senha root
+7. su   #passar a senha criada
+8. ja como root 
+9. passwd gitlab-runner   #para criar uma senha para o gitlab-runner
+10. su gitlab-runner
+11. Apartir daqui estaremos dentro do gitlab-runner
+12. docker imagens   #para verificar as imagens que estão nele
+13. docker ps   #para mostrar os que estão em execução
+14. docker login   #para se logar a sua conta do Docker
+15. Apartir de agora esse usuario gitlab-runner podera executar o docker, upload de imagens e executar essas imagens
+
+
+
+

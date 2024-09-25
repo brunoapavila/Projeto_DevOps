@@ -1,12 +1,9 @@
 # Estrutura base para criar imagens dockers personalizadas
 
-# FROM httpd:latest                    Imagen padrão
-# WORKDIR /the/workdir/path            Diretorio de Trabalho
-# COPY source dest                     Copiar tudo para o diretorio do servidor WORKDIR
+# FROM httpd:latest                    Imagen padrão apache ultima versão
+# WORKDIR /the/workdir/path            Diretorio de Trabalho caminho de onde esta o servidor que esta com a aplicação instalada
+# COPY source dest                     Copiar tudo para o diretorio de trabalho do servidor que esta usando
 # EXPOSE port                          Em qual porta sera exposto essa imagem (Abri porta x)
-
-
-
 
 
 FROM httpd:latest

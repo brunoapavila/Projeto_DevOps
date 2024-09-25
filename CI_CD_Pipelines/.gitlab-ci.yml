@@ -1,0 +1,23 @@
+stages:                 # estagios da pipeline
+  - build               # que ira gerar as imagens
+  - deploy              # que ira subir as imagens
+
+criar_imagens:          # aqui sera o titulo do Job
+  stage: build          # aqui escolhemos de qual stage esse job sera (no caso aqui o esse job pertence ao stage build)
+  tags:                 # aqui passamos as tags que escolhemos la no gitlab runner (aquo no caso aws)
+    - aws
+  script:               # aqui é o script de criação da imagem
+  - docker build -t brunoavila/Projeto_Devops:1.0 CI_CD_Pipelines/.        # docker build para gerar a imagem o 1.0 é a versão e o app/. é onde essa imagem esta
+  - docker push brunoavila/Projeto_Devops                 # docker push para subir essa imagem
+  
+
+
+
+# vamos para nosso projeto no terminal PS
+# git add .
+# git commit -m "criação pipeline"
+# git push --set-upstream origin main
+
+
+
+
