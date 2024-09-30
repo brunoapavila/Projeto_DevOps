@@ -1,0 +1,14 @@
+# load balancer serve para distribuir a carga de solicitações a uma aplicação em quantos nós/vm's estiverem mais disponiveis escalando a aplicação
+
+# arquivo base para criar um loadbalancer
+apiVersion: v1
+kind: Service
+metadata:
+  name: lb_micro1
+spec:
+  selector:
+    app: micro1
+  ports:
+  - port: 80
+    targetPort: 80
+  type: LoadBalancer    

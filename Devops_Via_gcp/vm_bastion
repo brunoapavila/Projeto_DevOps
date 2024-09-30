@@ -1,0 +1,37 @@
+# Bastion é uma instancia de vm que fica entre nossa pipeline do GitLab e nossa provedora cloud (gcp)
+# criar essa vm na mesma região do Cluster Kubenetes
+
+# agora ja com acesso a vm é só realizar todas as instalações necessarias para rodar a aplicação
+# O GitLabRunner, Registrar essa VM com o GitLab com o Register ex: VM Bastion de acesso ao cluster kubernetes
+# instalar o docker
+# escolher as tags como gcp, kubernetes
+# escolher shell
+
+# A inclusão do GitLab-Runner para o Grupo do Docker
+# usermode -G docker gitlab-runner
+# usermode -G sudo gitlab-runner
+
+# para configurar permissões no arquivo nano
+# nano /etc/sudoers
+
+# para configurar a conta da GCP
+# gcloud config set account +a conta do google cloud gcp
+# gcloud init
+# gcloud auth login    y= Yes     # isso é pra que tenhamos acesso ao Cluster Kubernetes
+
+
+# Para se conectar ao cluster
+# gcloud container cluster get-credentials cluster-1 --zone southamerica-east1-a --project plasma-galaxy-398912
+
+# é necessario instalar os componentes do gke
+# gcloud components install kubectl
+# sudo apt-get install kubectl       # se estiver como root não usa-se o sudo
+# sudo apt-get install google-cloud-sdk-gke-gcloud-auth-plugin
+
+# para visualizar os nós do cluster
+# kubectl get nodes
+# tudo isso atravez da vm gitlab-runner
+
+
+
+

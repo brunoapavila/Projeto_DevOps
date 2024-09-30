@@ -2,14 +2,42 @@ stages:                 # estagios da pipeline
   - build               # que ira gerar as imagens
   - deploy              # que ira subir as imagens
 
+variables:              # é uma variavel 
+  $GLOBAL_VAR: "2.0"    # no caso aqui de versões ai é só alterar no campo das versões 1.0 por esse comando $GLOBAL_VAR
+
+
 criar_imagens:          # aqui sera o titulo do Job
   stage: build          # aqui escolhemos de qual stage esse job sera (no caso aqui o esse job pertence ao stage build)
   tags:                 # aqui passamos as tags que escolhemos la no gitlab runner (aquo no caso aws)
     - aws
   script:               # aqui é o script de criação da imagem
-  - docker build -t brunoavila/Projeto_Devops:1.0 CI_CD_Pipelines/.        # docker build para gerar a imagem o 1.0 é a versão e o app/. é onde essa imagem esta
+  - docker build -t brunoavila/Projeto_Devops:$GLOBAL_VAR CI_CD_Pipelines/.        # docker build para gerar a imagem o 1.0 é a versão e o CI_CD_Pipelines/. é onde essa imagem esta
   - docker push brunoavila/Projeto_Devops                 # docker push para subir essa imagem
   
+executar_imagens:       # aqui é o titulo de mais um Job
+  stage: deploy         # que faz parte do stage deploy
+  needs:                # o needs serve para priorizar a execução (ou seja para que uma ação seja executada é necessario executar essa primeiro)
+    - criar_imagens     # ou seja no conteudo desse need primeiro criar_imagen e depois executala
+  tags:
+    - aws
+  before_script:        # é um job aqui sera executado um script antes de executar o proximo script
+    - docker rm $(docker ps -a -q) --force         # esse comando faz com que o docker remova todos que estão em execução o --force vai dar um stop forçado e dempois remover
+  script:
+    - docker runner -dti --name web-server -p 80:80 denilsonbonatti/app-bootcamp-devops:$GLOBAL_VAR
+  after_script:         # é mais um titulo do job
+    - docker system prume --force     # para limpar tudo que não esta sendo usado no momento
+
+            
+
+
+
+
+
+
+# Existe uma opção de Variavel para controlar as versões da aplicação utilizando esse comando:
+# $GLOBAL_VAR      que vai gerenciar as versões 
+
+
 
 
 

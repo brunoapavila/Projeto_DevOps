@@ -1,22 +1,21 @@
-Diretorio padrão do Apache
-
-/usr/local/apache2/htdocs/
-
-
-
-FROM httpd:2.4
-COPY ./public.html/ /usr/local/apache2/htdocs/
+# Diretorio padrão do Apache
+# /usr/local/apache2/htdocs/     # Diretorio padrão do Apache
 
 
 
-
-docker login        # para acessar o dockerHub via linha de comando
-usuario
-senha
+# FROM httpd:2.4
+# COPY ./public.html/ /usr/local/apache2/htdocs/
 
 
 
 
-docker push usuario_do_DockerHub/imagem:1.0      # para subir uma imagem no dockerHub
+# docker login        # para acessar o dockerHub via linha de comando
+# usuario
+# senha
+
+
+
+
+# docker push usuario_do_DockerHub/imagem:1.0      # para subir uma imagem no dockerHub
 
 

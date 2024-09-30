@@ -1,0 +1,71 @@
+# Cluster kubernetes é onde iram ficar todas as VM's ou nossos nós que teram dentro deles nossas aplicações e configurações
+# importante os n´s/vms do cluster teram que estar na mesma faixa de IPs
+# buscar por Cluster kubernetes da gcp (gke)
+# escolher um nome
+# escolher a zona/região
+# no campo default-pool mostra os nós a E2 do cluster com suas configurações da maquina
+
+
+# o acesso remoto das vms na gcp é indo na vm e editar
+# criar uma chave publica para ser usada atravez do PuTTGen que gera chaves publicas aleatorias dando um nome de gcp pra essa chave gerada
+# agora é só copiar e colar no campo chave-ssh da gcp
+# salvar para ficar armazenada na sua maquina local
+# salvar as duas tanto a publica quanto a privada
+# agora pra acessar a vm é só utilizar o PuTT passando a chave pupblica criada no ssh
+
+# agora ja com acesso a vm é só realizar todas as instalações necessarias para rodar a aplicação
+# O GitLabRunner, Registrar essa VM com o GitLab com o Register
+
+
+
+
+# Comando para listar os pods (Um conjunto de um ou mais contêiners):
+# kubectl get pods
+
+# A primeira parte do comando serve para listar também deployments e serviços:
+# kubectl get services
+
+# Para conseguir detalhes de um pod
+# kubectl describe pod <nome-pod>
+
+# A primeira parte do comando serve para descrever também deployments e serviços:
+# kubectl describe service <nome>
+
+# Para criar um pod, um deployment ou service a partir de um arquivo yml:
+# kubectl create -f <nome-arquivo-yml>
+
+# Para remover um pod, um deployment ou service a partir de um arquivo yml:
+# kubectl delete -f <nome-arquivo-yml>
+
+# Para remover um pod:
+# kubectl delete pod <nome-pod>
+
+# Para remover um deployment:
+# kubectl delete deployment <nome-deployment>
+
+# Para remover um service:
+# kubectl delete service <nome-service>
+
+# Para pegar um url do service:
+# minibube service <nome-do-servico> - url
+
+# Para Escalar a aplicação:
+# kubectl autoscale \
+# deployment \
+# <nome-do-servico> \
+#  - cpu-percent=50 \
+#  - min=1 \
+#  - max=10
+
+# Para listar os addons (complementos):
+# minikube addons list
+
+# - Para habilitar os addons:
+# minikube addons enable metrics-server
+
+# Para desabilitar os addons:
+# minikube addons disable metrics-server
+
+
+
+
